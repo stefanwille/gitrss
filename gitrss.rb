@@ -25,11 +25,10 @@ def git_rss(repository_path, repository_title)
     gravatar = "http://www.gravatar.com/avatar/#{gravatar_hash}"    
     date = entry.gsub(/^.*Date: +/ms, '').gsub(/\n.*$/ms, '')
     comments = entry.gsub(/^.*Date[^\n]*/ms, '')
-    comments = comments.split("\n")
-    comments = comments.map {|line| line.strip}
-    first_line_of_comments = comments.find {|line| line =~ /\S/}
+    comment_lines = comments.split("\n")
+    comment_lines = comment_lines.map {|line| line.strip}
+    first_line_of_comments = comment_lines.find {|line| line =~ /\S/}
     first_line_of_comments ||= " "  
-    comments = comments.map {|line| "#{line}<br>\n"}
     
   
     rss += "
