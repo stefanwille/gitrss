@@ -29,7 +29,6 @@ def git_rss(repository_path, repository_title)
     comment_lines = comment_lines.map {|line| line.strip}
     first_line_of_comments = comment_lines.find {|line| line =~ /\S/}
     first_line_of_comments ||= " "  
-    
   
     rss += "
       <item>
@@ -53,6 +52,8 @@ def git_rss(repository_path, repository_title)
 end
 
 
+# Command line argument 1: Path to git repository
 repository_path = $*[0]
+# Command line argument 2: Repository title to be displayed in RSS feed
 repository_title = $*[1]  
 puts git_rss(repository_path, repository_title)
