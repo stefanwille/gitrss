@@ -1,0 +1,9 @@
+RSS feed for git commits. 
+
+For those who don't put all their repos on Github, this script generates an RSS feed. Put this script in a git post-receive hook like so:
+
+<pre>
+ruby /home/git/tools/gitrss/gitrss.rb /home/git/my-repo.git my-repo.git >/home/www-data/sites/gitrss.mysite.com/my-repo.rss 
+</pre>
+
+Then point your Apache to the directory where gitrss.rb writes its output to. After the next commit, you can subscribe to your RSS feed with any modern RSS reader.
